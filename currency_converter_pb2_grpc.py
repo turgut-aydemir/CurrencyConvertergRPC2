@@ -15,10 +15,10 @@ class CurrencyConverterStub(object):
             channel: A grpc.Channel.
         """
         self.ConvertCurrency = channel.unary_unary(
-                '/currency_converter.CurrencyConverter/ConvertCurrency',
-                request_serializer=currency__converter__pb2.CurrencyConversionRequest.SerializeToString,
-                response_deserializer=currency__converter__pb2.CurrencyConversionResponse.FromString,
-                )
+            '/currency_converter.CurrencyConverter/ConvertCurrency',
+            request_serializer=currency__converter__pb2.CurrencyConversionRequest.SerializeToString,
+            response_deserializer=currency__converter__pb2.CurrencyConversionResponse.FromString,
+        )
 
 
 class CurrencyConverterServicer(object):
@@ -33,34 +33,12 @@ class CurrencyConverterServicer(object):
 
 def add_CurrencyConverterServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'ConvertCurrency': grpc.unary_unary_rpc_method_handler(
-                    servicer.ConvertCurrency,
-                    request_deserializer=currency__converter__pb2.CurrencyConversionRequest.FromString,
-                    response_serializer=currency__converter__pb2.CurrencyConversionResponse.SerializeToString,
-            ),
+        'ConvertCurrency': grpc.unary_unary_rpc_method_handler(
+            servicer.ConvertCurrency,
+            request_deserializer=currency__converter__pb2.CurrencyConversionRequest.FromString,
+            response_serializer=currency__converter__pb2.CurrencyConversionResponse.SerializeToString,
+        ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'currency_converter.CurrencyConverter', rpc_method_handlers)
+        'currency_converter.CurrencyConverter', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-
-
- # This class is part of an EXPERIMENTAL API.
-class CurrencyConverter(object):
-    """Missing associated documentation comment in .proto file."""
-
-    @staticmethod
-    def ConvertCurrency(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/currency_converter.CurrencyConverter/ConvertCurrency',
-            currency__converter__pb2.CurrencyConversionRequest.SerializeToString,
-            currency__converter__pb2.CurrencyConversionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -7,41 +7,42 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
+
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
-
-
-
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18\x63urrency_converter.proto\x12\x12\x63urrency_converter\"W\n\x19\x43urrencyConversionRequest\x12\x0e\n\x06\x61mount\x18\x01 \x01(\x01\x12\x15\n\rfrom_currency\x18\x02 \x01(\t\x12\x13\n\x0bto_currency\x18\x03 \x01(\t\",\n\x1a\x43urrencyConversionResponse\x12\x0e\n\x06result\x18\x01 \x01(\x01\x32\x85\x01\n\x11\x43urrencyConverter\x12p\n\x0f\x43onvertCurrency\x12-.currency_converter.CurrencyConversionRequest\x1a..currency_converter.CurrencyConversionResponseb\x06proto3')
-
-
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n\x18\x63urrency_converter.proto\x12\x12\x63urrency_converter\"W\n\x19\x43urrencyConversionRequest\x12\x0e\n'
+    b'\x06\x61mount\x18\x01 \x01(\x01\x12\x15\n\rfrom_currency\x18\x02 \x01(\t\x12\x13\n\x0bto_currency\x18\x03 \x01('
+    b'\t\",\n\x1a\x43urrencyConversionResponse\x12\x0e\n\x06result\x18\x01 \x01('
+    b'\x01\x32\x85\x01\n\x11\x43urrencyConverter\x12p\n\x0f\x43onvertCurrency\x12-.currency_converter'
+    b'.CurrencyConversionRequest\x1a..currency_converter.CurrencyConversionResponseb\x06proto3')
 
 _CURRENCYCONVERSIONREQUEST = DESCRIPTOR.message_types_by_name['CurrencyConversionRequest']
 _CURRENCYCONVERSIONRESPONSE = DESCRIPTOR.message_types_by_name['CurrencyConversionResponse']
 CurrencyConversionRequest = _reflection.GeneratedProtocolMessageType('CurrencyConversionRequest', (_message.Message,), {
-  'DESCRIPTOR' : _CURRENCYCONVERSIONREQUEST,
-  '__module__' : 'currency_converter_pb2'
-  # @@protoc_insertion_point(class_scope:currency_converter.CurrencyConversionRequest)
-  })
+    'DESCRIPTOR': _CURRENCYCONVERSIONREQUEST,
+    '__module__': 'currency_converter_pb2'
+    # @@protoc_insertion_point(class_scope:currency_converter.CurrencyConversionRequest)
+})
 _sym_db.RegisterMessage(CurrencyConversionRequest)
 
-CurrencyConversionResponse = _reflection.GeneratedProtocolMessageType('CurrencyConversionResponse', (_message.Message,), {
-  'DESCRIPTOR' : _CURRENCYCONVERSIONRESPONSE,
-  '__module__' : 'currency_converter_pb2'
-  # @@protoc_insertion_point(class_scope:currency_converter.CurrencyConversionResponse)
-  })
+CurrencyConversionResponse = _reflection.GeneratedProtocolMessageType('CurrencyConversionResponse', (_message.Message,),
+                                                                      {
+                                                                          'DESCRIPTOR': _CURRENCYCONVERSIONRESPONSE,
+                                                                          '__module__': 'currency_converter_pb2'
+                                                                          # @@protoc_insertion_point(class_scope:currency_converter.CurrencyConversionResponse)
+                                                                      })
 _sym_db.RegisterMessage(CurrencyConversionResponse)
 
 _CURRENCYCONVERTER = DESCRIPTOR.services_by_name['CurrencyConverter']
 if _descriptor._USE_C_DESCRIPTORS == False:
-
-  DESCRIPTOR._options = None
-  _CURRENCYCONVERSIONREQUEST._serialized_start=48
-  _CURRENCYCONVERSIONREQUEST._serialized_end=135
-  _CURRENCYCONVERSIONRESPONSE._serialized_start=137
-  _CURRENCYCONVERSIONRESPONSE._serialized_end=181
-  _CURRENCYCONVERTER._serialized_start=184
-  _CURRENCYCONVERTER._serialized_end=317
+    DESCRIPTOR._options = None
+    _CURRENCYCONVERSIONREQUEST._serialized_start = 48
+    _CURRENCYCONVERSIONREQUEST._serialized_end = 135
+    _CURRENCYCONVERSIONRESPONSE._serialized_start = 137
+    _CURRENCYCONVERSIONRESPONSE._serialized_end = 181
+    _CURRENCYCONVERTER._serialized_start = 184
+    _CURRENCYCONVERTER._serialized_end = 317
 # @@protoc_insertion_point(module_scope)
