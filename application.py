@@ -4,8 +4,10 @@ import currency_converter_pb2
 import currency_converter_pb2_grpc
 from forex_python.converter import CurrencyRates
 from flask import Flask
+import threading
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def func():
@@ -23,14 +25,24 @@ class CurrencyConverterServicer(currency_converter_pb2_grpc.CurrencyConverterSer
         return currency_converter_pb2.CurrencyConversionResponse(result=result)
 
 
-def serve():
+def serve_grpc():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     currency_converter_pb2_grpc.add_CurrencyConverterServicer_to_server(CurrencyConverterServicer(), server)
     p = server.add_insecure_port('0.0.0.0:8282')
     server.start()
-    return server
+    server.wait_for_termination()
+
+
+def run_flask():
+    app.run(host='0.0.0.0', port=8000)
 
 
 if __name__ == '__main__':
-    serve()
-    app.run(host='0.0.0.0', port=8000)
+    grpc_thread = threading.Thread(target=serve_grpc)
+    flask_thread = threading.Thread(target=run_flask)
+
+    grpc_thread.start()
+    flask_thread.start()
+
+    grpc_thread.join()
+    flask_thread.join()
