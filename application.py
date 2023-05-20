@@ -29,8 +29,6 @@ def serve():
     currency_converter_pb2_grpc.add_CurrencyConverterServicer_to_server(CurrencyConverterServicer(), server)
     p = server.add_insecure_port('0.0.0.0:8282')
     server.start()
-    return server
-
 
 if __name__ == '__main__':
     grpc_server = serve()
