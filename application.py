@@ -1,8 +1,17 @@
 import grpc
 from concurrent import futures
+
+from flask import Flask
+
 import currency_converter_pb2
 import currency_converter_pb2_grpc
 from forex_python.converter import CurrencyRates
+
+app = Flask(__name__)
+
+@app.route('/')
+def func():
+    return "Currency Converter Server by Turgut Aydemir"
 
 
 class CurrencyConverterServicer(currency_converter_pb2_grpc.CurrencyConverterServicer):
@@ -31,3 +40,4 @@ def serve():
 
 if __name__ == '__main__':
     serve()
+    app.run(host="0.0.0.0", port=8000)
