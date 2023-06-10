@@ -23,8 +23,10 @@ class CurrencyConverterServicer(currency_converter_pb2_grpc.CurrencyConverterSer
         to_currency = request.to_currency
 
         c = CurrencyRates()
-        result = c.convert(from_currency, to_currency, amount)
-
+        try:
+            result = c.convert(from_currency, to_currency, amount)
+        except:
+            result = 1000
         return currency_converter_pb2.CurrencyConversionResponse(result=result)
 
 
